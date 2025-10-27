@@ -1,0 +1,180 @@
+.contato-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.contato-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.contato-header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.contato-header p {
+  font-size: 1.1rem;
+  color: #777;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contato-conteudo {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 50px;
+  background-color: #ffffff;
+  padding: 40px 50px;
+  border-radius: 8px;
+  border: 1px solid var(--cor-borda);
+  align-items: start;
+}
+
+.formulario-contato h3 {
+  font-size: 1.6rem;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.formulario-contato .campo-grupo {
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.formulario-contato label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.formulario-contato input,
+.formulario-contato textarea {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid var(--cor-borda);
+  border-radius: 0;
+  padding: 10px 0;
+  width: 100%;
+  font-size: 1rem;
+  color: var(--cor-texto);
+  transition: border-color 0.3s ease;
+}
+
+.formulario-contato input::placeholder,
+.formulario-contato textarea::placeholder {
+  color: #ccc;
+}
+
+.formulario-contato input:focus,
+.formulario-contato textarea:focus {
+  outline: none;
+  border-bottom-color: var(--cor-primaria);
+}
+
+.formulario-contato textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.campo-duplo {
+  display: flex;
+  gap: 30px;
+}
+
+.campo-duplo .campo-grupo {
+  flex: 1;
+}
+
+.btn-enviar {
+  width: 100%;
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: var(--cor-destaque);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-enviar:hover {
+  background-color: #667788;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-enviar svg {
+  width: 18px;
+  height: 18px;
+  fill: #ffffff;
+}
+
+.info-contato h3 {
+  font-size: 1.6rem;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.lista-info {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.lista-info li {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.lista-info svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--cor-primaria);
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.texto-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.texto-info strong {
+  margin-bottom: 5px;
+}
+
+.texto-info span,
+.texto-info a {
+  color: #555;
+  line-height: 1.5;
+}
+
+.texto-info a:hover {
+  color: var(--cor-primaria);
+}
+
+.mapa-placeholder {
+  width: 100%;
+  height: 200px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  border: 1px solid var(--cor-borda);
+}
