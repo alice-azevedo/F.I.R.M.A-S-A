@@ -284,3 +284,66 @@ footer {
   display: block;
   margin-bottom: 8px;
 }
+
+.card-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    align-items: center; 
+    gap: 1rem; 
+    margin: 10%;
+    background-color: #aac6d9; 
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+#foto-item {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+#nome-item, #preco-item {
+    font-family: sans-serif;
+}
+
+.card-item > div:not(:first-child) {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#nome-item p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+#preco-item {
+    font-size: 1rem;
+    color: #555;
+}
+
+.botao-zap-container {
+    display: flex;
+    justify-content: flex-end; 
+    margin: 2rem; 
+}
+
+.botao-zap {
+    background-color: #25D366; 
+    color: white;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px;
+    padding: 0.7rem 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.botao-zap:hover {
+    background-color: #1ebe5d;
+    transform: scale(1.05);
+}
