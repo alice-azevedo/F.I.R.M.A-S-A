@@ -1,0 +1,141 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.overlay.ativo {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.popup-conteudo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  background: #fff;
+  color: #222;
+  border-radius: 16px;
+  padding: 24px;
+  width: 90%;
+  max-width: 420px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 1010;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.popup-conteudo.ativo {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.popup-fechar {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 1.4rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.2s ease;
+}
+.popup-fechar:hover {
+  color: #000;
+}
+
+.popup-imagem {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  max-height: 220px;
+  margin-bottom: 16px;
+}
+
+.popup-nome {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.popup-descricao {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 18px;
+}
+
+.popup-opcoes, .popup-quantidade {
+  margin-bottom: 14px;
+}
+
+.popup-opcoes label, 
+.popup-quantidade label {
+  display: block;
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 4px;
+}
+
+#popup-tamanho, 
+#popup-quantidade {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 0.95rem;
+  color: #222;
+  background: #fafafa;
+}
+
+#popup-add-carrinho {
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  background: #f5b041;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.25s ease;
+}
+
+#popup-add-carrinho:hover {
+  background: #e59819;
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+@keyframes zoomOut {
+  from { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  to { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+}
+.popup-conteudo.ativo {
+  animation: zoomIn 0.3s ease forwards;
+}
+.popup-conteudo.saindo {
+  animation: zoomOut 0.3s ease forwards;
+}
+
+@media (max-width: 500px) {
+  .popup-conteudo {
+    width: 90%;
+    padding: 18px;
+  }
+
+  .popup-nome {
+    font-size: 1.2rem;
+  }
+}

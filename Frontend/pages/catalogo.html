@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catálogo | Yê Velas com Afeto</title>
+
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="../assets/css/catalogo.css" />
+  <link rel="stylesheet" href="../assets/css/produto-popup.css">
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <header></header>
+
+  <main class="loja-container">
+    <header class="loja-header" aria-labelledby="titulo-catalogo">
+      <h1 id="titulo-catalogo">
+      <p>Aconchego e afeto em forma de vela, criados para transformar seus momentos.</p>
+    </header>
+
+    <div class="filtros-ordenacao">
+      <span class="contagem-produtos" id="contagem-produtos"></span>
+      <div class="ordenar-por">
+        <label for="ordenar">Ordenar por:</label>
+        <select id="ordenar">
+          <option value="relevancia">Mais Relevantes</option>
+          <option value="preco-menor">Menor Preço</option>
+          <option value="preco-maior">Maior Preço</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="produtos-grid" id="produtos-grid"></div>
+  </main>
+
+  <footer></footer>
+
+  <script type="module" src="../assets/js/header-footer.js"></script>
+  <script type="module" src="../assets/js/catalogo.js"></script>
+  <script type="module" src="../assets/js/carrinho.js"></script>
+  <script type="module" src="../assets/js/produto-popup.js"></script>
+</body>
+</html>

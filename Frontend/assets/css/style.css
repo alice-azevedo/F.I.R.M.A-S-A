@@ -1,0 +1,401 @@
+:root {
+  --bg: #FBF8F5;
+  --card-bg: #FFFFFF;
+  --text: #222222;
+  --muted: #6B6B6B;
+  --accent: #C76B4B;
+  --accent-dark: #9a4d36;
+  --success: #2B8A3E;
+  --shadow: rgba(20,20,20,0.06);
+  --cor-primaria: #7a9fc0;
+  --cor-secundaria-azul: #aac6d9;
+  --cor-fundo: #d9d4ba;
+  --cor-paineis: #fdfbf7;
+  --cor-destaque: #bf5a1f;
+  --cor-destaque-hover: #f2b440;
+  --cor-texto: #41403a;
+  --cor-borda: #c9c4a9;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.45;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="number"],
+textarea {
+  padding: 10px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 5px;
+  font-family: inherit;
+}
+
+input[type="button"],
+button {
+  padding: 10px 20px;
+  background-color: var(--cor-primaria);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+input[type="button"]:hover,
+button:hover {
+  background-color: #6d4630;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 20px;
+  background: transparent;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  backdrop-filter: blur(4px);
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--text);
+}
+
+.nav {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.nav a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+.nav a:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px var(--shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.card p.desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+.card .meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.price {
+  font-weight: 700;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  border: 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-add {
+  background: var(--accent);
+  color: white;
+}
+
+.btn-view {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.btn-fechar {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #ccc;
+  color: #333;
+}
+
+.btn-tamanho {
+  background: #c69749;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-cancelar {
+  background: transparent;
+  border: none;
+  color: #444;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.site-footer {
+  margin-top: 40px;
+  padding: 20px;
+  text-align: center;
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 16px;
+}
+
+.modal-backdrop.ativo {
+  display: flex;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.modal .body {
+  display: flex;
+  gap: 16px;
+  padding: 18px;
+}
+
+.modal-body img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.modal img {
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.modal .info {
+  flex: 1;
+}
+
+.modal .info h3 {
+  margin-bottom: 5px;
+}
+
+.modal .acoes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.modal-tamanho {
+  position: fixed;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}
+
+.modal-tamanho.ativo {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  width: 300px;
+}
+
+.opcoes-tamanho {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 1rem 0;
+}
+
+.cart-floating {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  background: var(--accent);
+  color: white;
+  padding: 12px 14px;
+  border-radius: 999px;
+  box-shadow: 0 6px 20px var(--shadow);
+  z-index: 50;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.badge {
+  background: var(--accent-dark);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: .8rem;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 30px rgba(10, 10, 10, 0.08);
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+  .card img {
+    height: 180px;
+  }
+  
+  .modal .body {
+    flex-direction: column;
+  }
+  
+  .modal img {
+    width: 100%;
+    height: 260px;
+  }
+  
+  .nav {
+    display: none;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .card img {
+    height: 200px;
+  }
+  
+  .modal img {
+    width: 260px;
+    height: 260px;
+  }
+  
+  .container {
+    padding: 16px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

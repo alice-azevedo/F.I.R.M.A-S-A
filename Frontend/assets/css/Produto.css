@@ -1,0 +1,315 @@
+.container-produto {
+  display: flex;
+  gap: 50px;
+  padding: 50px 5%;
+  align-items: flex-start;
+  background: transparent;
+}
+
+#item-lado1,
+#item-lado2 {
+  flex: 1;
+}
+
+/* lateral esquerda: galeria */
+#item-lado1 {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+#preview-imagens {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#preview-imagens img {
+  width: 80px;
+  height: 80px;
+  background-color: #ccc;
+  border: 1px solid var(--cor-borda);
+  border-radius: 5px;
+  cursor: pointer;
+  object-fit: cover;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+
+#preview-imagens img:hover,
+#preview-imagens img.ativo {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  border-color: var(--cor-primaria);
+}
+
+/* imagem principal */
+#item-lado1 > img,
+#item-lado1 .imagem-principal {
+  width: 100%;
+  height: auto;
+  max-height: 680px;
+  background-color: #ccc;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+}
+
+/* lateral direita: informações */
+#item-lado2 p:first-child {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0 0 8px 0;
+}
+
+#item-lado2 p:nth-child(2) {
+  font-size: 1.8rem;
+  color: var(--cor-primaria);
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+#item-lado2 p:nth-child(3) {
+  font-size: 1rem;
+  margin-bottom: 30px;
+  color: var(--cor-texto);
+}
+
+/* grupos de opções (tamanhos, fragrância, etc.) */
+#item-lado2 #lado-a-lado {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+/* dados de envio / caixa de informações */
+#dados-envio {
+  border: 1px solid var(--cor-borda);
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 30px;
+  background: var(--cor-paineis);
+  color: var(--cor-texto);
+}
+
+/* botões e ações */
+.btn-adicionar-produto {
+  display: inline-block;
+  padding: 12px 18px;
+  background: var(--cor-destaque);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .18s ease, transform .12s ease;
+}
+
+.btn-adicionar-produto:hover {
+  background: var(--cor-destaque-hover);
+  transform: translateY(-2px);
+}
+
+/* pequenas utilidades */
+.meta-produto {
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+/* responsividade */
+@media (max-width: 1024px) {
+  .container-produto {
+    gap: 24px;
+    padding: 36px 4%;
+  }
+  #item-lado1 .imagem-principal {
+    max-height: 520px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-produto {
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px 4%;
+  }
+
+  #preview-imagens {
+    flex-direction: row;
+    order: 2;
+  }
+
+  #item-lado1 {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  #item-lado1 .imagem-principal,
+  #item-lado1 > img {
+    max-height: 420px;
+  }
+
+  #item-lado2 p:first-child { font-size: 1.6rem; }
+  #item-lado2 p:nth-child(2) { font-size: 1.25rem; }
+}
+
+.container-produto {
+  display: flex;
+  gap: 50px;
+  padding: 50px 5%;
+  align-items: flex-start;
+  background: transparent;
+}
+
+#item-lado1,
+#item-lado2 {
+  flex: 1;
+}
+
+/* lateral esquerda: galeria */
+#item-lado1 {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+#preview-imagens {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#preview-imagens img {
+  width: 80px;
+  height: 80px;
+  background-color: #ccc;
+  border: 1px solid var(--cor-borda);
+  border-radius: 5px;
+  cursor: pointer;
+  object-fit: cover;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+
+#preview-imagens img:hover,
+#preview-imagens img.ativo {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  border-color: var(--cor-primaria);
+}
+
+/* imagem principal */
+#item-lado1 > img,
+#item-lado1 .imagem-principal {
+  width: 100%;
+  height: auto;
+  max-height: 680px;
+  background-color: #ccc;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  object-fit: cover;
+  display: block;
+}
+
+/* lateral direita: informações */
+#item-lado2 p:first-child {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0 0 8px 0;
+}
+
+#item-lado2 p:nth-child(2) {
+  font-size: 1.8rem;
+  color: var(--cor-primaria);
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+#item-lado2 p:nth-child(3) {
+  font-size: 1rem;
+  margin-bottom: 30px;
+  color: var(--cor-texto);
+}
+
+/* grupos de opções (tamanhos, fragrância, etc.) */
+#item-lado2 #lado-a-lado {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+/* dados de envio / caixa de informações */
+#dados-envio {
+  border: 1px solid var(--cor-borda);
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 30px;
+  background: var(--cor-paineis);
+  color: var(--cor-texto);
+}
+
+/* botões e ações */
+.btn-adicionar-produto {
+  display: inline-block;
+  padding: 12px 18px;
+  background: var(--cor-destaque);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .18s ease, transform .12s ease;
+}
+
+.btn-adicionar-produto:hover {
+  background: var(--cor-destaque-hover);
+  transform: translateY(-2px);
+}
+
+/* pequenas utilidades */
+.meta-produto {
+  color: var(--muted);
+  font-size: .95rem;
+}
+
+/* responsividade */
+@media (max-width: 1024px) {
+  .container-produto {
+    gap: 24px;
+    padding: 36px 4%;
+  }
+  #item-lado1 .imagem-principal {
+    max-height: 520px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-produto {
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px 4%;
+  }
+
+  #preview-imagens {
+    flex-direction: row;
+    order: 2;
+  }
+
+  #item-lado1 {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  #item-lado1 .imagem-principal,
+  #item-lado1 > img {
+    max-height: 420px;
+  }
+
+  #item-lado2 p:first-child { font-size: 1.6rem; }
+  #item-lado2 p:nth-child(2) { font-size: 1.25rem; }
+}

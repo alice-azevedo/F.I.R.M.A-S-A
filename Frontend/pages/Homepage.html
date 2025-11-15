@@ -3,94 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="Homepage.css">
+  <title>YE Velas com Afeto</title>
+  
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/homepage.css">
+  <link rel="stylesheet" href="../assets/css/produto-popup.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <title>Yê: Velas com Afeto</title>
+  
 </head>
 <body>
   <div id="banner-brindes">Brindes em todas as compras acima de R$199</div>
-  <nav>
-    <div class="nav-container">
-      <a href="Homepage.html" class="nav-logo"><img id="logo"></a>
-      <div class="nav-links">
-        <a href="Homepage.html" class="active">Home</a>
-        <a href="Itens.html">Loja</a>
-        <a href="Contato.html">Contato</a>
-      </div>
-      <div class="nav-actions">
-        <div class="search-container">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
-          <input id="barra-pesq" type="text" placeholder="Pesquisar...">
-        </div>
-        <a href="#" class="nav-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg></a>
-        <a href="Carrinho.html" class="nav-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
-        </a>
-      </div>
-    </div>
-  </nav>
-  <main class="homepage-container">
-    <section class="hero-banner">
+  <header></header>
+  <main>
+    <section class="hero-banner" aria-labelledby="hero-titulo">
       <div class="hero-content">
         <div class="hero-text-group">
           <h1>Sinta o afeto em cada aroma.</h1>
           <p>Velas artesanais de cera vegetal, criadas para iluminar e perfumar seus melhores momentos.</p>
         </div>
         <div class="hero-logo-wrapper">
-          <img src="logo.png" alt="Logo Yê Velas com Afeto" class="hero-logo">
+          <img src="../assets/img/logo.png" alt="Logo Yê Velas com Afeto" class="hero-logo">
         </div>
       </div>
     </section>
-    <section class="brand-intro">
+    <section class="brand-intro" aria-labelledby="brand-titulo">
       <div class="intro-image"></div>
       <div class="intro-text">
         <h2 class="section-title">Feitas à mão, uma por uma.</h2>
         <p>Nossa paixão é transformar ingredientes naturais em uma experiência única. Cada vela Yê é derramada individualmente com cera 100% vegetal e essências premium, garantindo uma queima limpa e um aroma que preenche o ambiente e a alma.</p>
       </div>
     </section>
-    <section class="section-produtos-destaque">
-      <h2 class="section-title">Uma Coleção de Momentos</h2>
-      <div class="produtos-grid">
-        <div class="card-produto">
-          <a href="Produto.html" class="link-produto"><div class="imagem-produto"></div><h3 class="nome-produto">Vela Aromática de Cafézin</h3><p class="preco-produto">R$ 60,00</p></a>
-          <button class="btn-adicionar">Adicionar ao Carrinho</button>
+    <section class="section-produtos-destaque" aria-labelledby="destaque-titulo">
+        <h2 class="section-title">Uma Coleção de Momentos</h2>
+        <div id="produtos-grid" class="produtos-grid"></div>
+        <p id="contagem-produtos" class="contador-produtos"></p>
+        <div class="cta-container">
+          <a href="catalogo.html" class="btn-cta-outline">Ver todos os aromas</a>
         </div>
-        <div class="card-produto">
-          <a href="Produto.html" class="link-produto"><div class="imagem-produto"></div><h3 class="nome-produto">Vela Aromática de Lavanda</h3><p class="preco-produto">R$ 55,00</p></a>
-          <button class="btn-adicionar">Adicionar ao Carrinho</button>
-        </div>
-        <div class="card-produto">
-          <a href="Produto.html" class="link-produto"><div class="imagem-produto"></div><h3 class="nome-produto">Vela de Baunilha e Coco</h3><p class="preco-produto">R$ 62,00</p></a>
-          <button class="btn-adicionar">Adicionar ao Carrinho</button>
-        </div>
-        <div class="card-produto">
-          <a href="Produto.html" class="link-produto"><div class="imagem-produto"></div><h3 class="nome-produto">Vela de Flor de Cerejeira</h3><p class="preco-produto">R$ 60,00</p></a>
-          <button class="btn-adicionar">Adicionar ao Carrinho</button>
-        </div>
-      </div>
-      <div class="cta-container">
-        <a href="Itens.html" class="btn-cta-outline">Ver todos os aromas</a>
-      </div>
     </section>
-    <section class="features-bar">
+    <section class="features-bar" aria-label="diferenciais da marca">
       <div class="feature-item">
-        <i class="fa-solid fa-leaf"></i>
+        <i class="fa-solid fa-leaf" aria-hidden="true"></i>
         <h3>Cera 100% Vegetal</h3>
         <p>Queima limpa, ecológica e livre de parafina.</p>
       </div>
       <div class="feature-item">
-        <i class="fa-solid fa-hand-holding-heart"></i>
+        <i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i>
         <h3>Feitas à Mão</h3>
         <p>Cuidado, carinho e afeto em cada detalhe.</p>
       </div>
       <div class="feature-item">
-        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star" aria-hidden="true"></i>
         <h3>Fragrâncias Exclusivas</h3>
         <p>Combinações de aromas que criam memórias.</p>
       </div>
     </section>
   </main>
   <footer></footer>
+<script src="../assets/js/header-footer.js" type="module"></script>
+<script type="module" src="../assets/js/catalogo.js"></script>
+<script type="module" src="../assets/js/produto-popup.js"></script>
 </body>
+
 </html>

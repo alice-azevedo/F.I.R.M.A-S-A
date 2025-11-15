@@ -1,0 +1,33 @@
+<div class="modal-backdrop" id="produto-modal" role="dialog" aria-modal="true">
+  <div class="modal" style="max-width:760px;padding:16px;">
+    <div style="display:flex;gap:16px;">
+      <img src="{{url_imagem}}" alt="{{nome_vela}}" style="width:340px;height:340px;object-fit:cover;border-radius:8px;">
+      <div style="flex:1;">
+        <h2 style="margin-top:0">{{nome_vela}}</h2>
+        <p style="color:#666">{{descricao}}</p>
+        <div style="margin-top:12px">
+          <div><strong>Preços:</strong></div>
+          <div style="margin-top:6px">Pequeno: <span style="font-weight:700">{{preco_pequeno}}</span></div>
+          <div>Grande: <span style="font-weight:700">{{preco_grande}}</span></div>
+        </div>
+
+        <div style="margin-top:12px" class="row">
+          <label><input type="radio" name="tamanho-choose" value="Pequeno" checked> Pequeno</label>
+          <label style="margin-left:10px"><input type="radio" name="tamanho-choose" value="Grande"> Grande</label>
+        </div>
+
+        <div style="margin-top:12px;">
+          <label>Quantidade:
+            <input id="popup-qty" type="number" min="1" value="1" style="width:80px;margin-left:8px;padding:6px;border-radius:6px;border:1px solid #ddd">
+          </label>
+        </div>
+
+        <div style="margin-top:18px;display:flex;gap:12px;">
+          <button data-action="add" data-id="{{id}}" data-tamanho="Pequeno" class="btn">Adicionar Pequeno</button>
+          <button data-action="add" data-id="{{id}}" data-tamanho="Grande" class="btn">Adicionar Grande</button>
+          <button class="modal-close" style="background:#ddd">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
