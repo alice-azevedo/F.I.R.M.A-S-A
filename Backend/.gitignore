@@ -1,5 +1,6 @@
 # Node modules
 node_modules/
+.husky/
 
 # Build output
 dist/
@@ -24,3 +25,6 @@ Thumbs.db
 # Testing
 coverage/
 *.lcov
+
+# Security
+.env

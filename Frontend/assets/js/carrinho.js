@@ -34,7 +34,7 @@ export function adicionarAoCarrinho(produto, quantidade = 1) {
       id: produto.id,
       nome_vela: produto.nome_vela || produto.nome,
       preco_unitario: produto.preco,
-      tamanho: produto.tamanho || 'único',
+      tamanho: produto.tamanho === 'Pequeno' || produto.tamanho === 'Grande' ? produto.tamanho : 'Pequeno',
       imagem: produto.imagem || produto.imagem_url || '',
       quantidade
     });
@@ -136,6 +136,7 @@ async function enviarCarrinho() {
 
   const payload = { cliente_nome: nome, cliente_telefone: telefone, items: itens };
 
+
   try {
     const resposta = await enviarPedido(payload);
 
@@ -165,3 +166,4 @@ document.addEventListener('DOMContentLoaded', () => {
     botaoCheckout.addEventListener('click', enviarCarrinho);
   }
 });
+
