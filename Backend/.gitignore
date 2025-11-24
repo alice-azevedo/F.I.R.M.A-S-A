@@ -28,3 +28,4 @@ coverage/
 
 # Security
 .env
+Backend/.env

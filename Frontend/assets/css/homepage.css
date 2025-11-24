@@ -80,7 +80,7 @@
   height: 400px;
   background-color: #f0f0f0;
   border-radius: 8px;
-  background-image: url('https://images.unsplash.com/photo-1588796399777-42534566c3e2?q=80&w=1974');
+  background-image: url('..img/fundo.jpg');
   background-size: cover;
   background-position: center;
 }
