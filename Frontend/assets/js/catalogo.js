@@ -64,16 +64,18 @@ function abrirModalTamanho(produto) {
       const tamanho = btn.dataset.tamanho;
       const preco = tamanho === 'grande' ? produto.preco_grande : produto.preco_pequeno;
 
+      const tamanhoFormatado = tamanho === 'grande' ? 'Grande' : 'Pequeno';
+
       const item = {
         id: produto.id + '-' + tamanho,
-        nome: `${produto.nome} (${tamanho})`,
+        nome: produto.nome,
         preco,
+        tamanho: tamanhoFormatado,
         imagem: produto.image_url || '../assets/img/default.png'
       };
 
       adicionarAoCarrinho(item, 1);
-      atualizarBadgeCarrinho();
-      alert(`${produto.nome} (${tamanho}) foi adicionado ao carrinho!`);
+      // `adicionarAoCarrinho` já salva e atualiza o badge e mostra o toast
       modal.remove();
     });
   });

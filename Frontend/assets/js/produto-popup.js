@@ -76,9 +76,7 @@ export function openProductModal(produto) {
     };
 
     adicionarAoCarrinho(item, quantidade);
-    atualizarBadgeCarrinho();
-
-    alert(` ${item.nome} foi adicionado ao carrinho!`);
+    // `adicionarAoCarrinho` já atualiza badge e exibe toast com ação Desfazer
     fecharPopup();
   });
 }
