@@ -1,6 +1,6 @@
 // src/routes/auth.ts
 import { Router, Request, Response } from 'express'
-import { supabaseAdmin } from '../services/supabaseClient'
+import { supabase } from '../lib/supabaseClient'
 
 const router = Router()
 
@@ -10,7 +10,7 @@ router.post('/signup', async (req: Request, res: Response) => {
 
   try {
     // Criar usuário no auth do Supabase
-    const { data: user, error: authError } = await supabaseAdmin.auth.admin.createUser({
+    const { data: user, error: authError } = await supabase.auth.admin.createUser({
       email,
       password: senha,
       user_metadata: {
@@ -26,7 +26,7 @@ router.post('/signup', async (req: Request, res: Response) => {
     if (authError) return res.status(400).json({ error: authError.message })
 
     // Criar registro na tabela usuarios
-    const { data, error: dbError } = await supabaseAdmin
+    const { data, error: dbError } = await supabase
       .from('usuarios')
       .insert([{ id: user.user?.id, nome, email, telefone, cpf, endereco, data_de_nascimento }])
       .select()
@@ -46,7 +46,7 @@ router.post('/login', async (req: Request, res: Response) => {
   const { email, senha } = req.body
 
   try {
-    const { data, error } = await supabaseAdmin.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password: senha
     })
@@ -70,7 +70,7 @@ router.get('/me', async (req: Request, res: Response) => {
   if (!token) return res.status(401).json({ error: 'Token não fornecido' })
 
   try {
-    const { data: user, error } = await supabaseAdmin.auth.getUser(token)
+    const { data: user, error } = await supabase.auth.getUser(token)
     if (error || !user.user) return res.status(401).json({ error: 'Token inválido' })
     res.json(user.user)
   } catch (err) {

@@ -1,6 +1,6 @@
 // src/routes/personalizacoes.ts
 import { Router, Request, Response } from 'express'
-import { supabaseAdmin } from '../services/supabaseClient'
+import { supabase } from '../lib/supabaseClient'
 import { authenticate, AuthRequest } from '../middlewares/authenticate'
 
 const router = Router()
@@ -9,7 +9,7 @@ const router = Router()
 router.post('/', authenticate, async (req: AuthRequest, res: Response) => {
   const { nome, itens } = req.body
   try {
-    const { data: personalizacao, error } = await supabaseAdmin
+    const { data: personalizacao, error } = await supabase
       .from('personalizacoes')
       .insert([{ nome, usuario_id: req.user!.id }])
       .select()
@@ -18,7 +18,7 @@ router.post('/', authenticate, async (req: AuthRequest, res: Response) => {
 
     // Inserir itens vinculados
     const itensData = itens.map((i: any) => ({ personalizacao_id: personalizacao.id, produto_id: i.produto_id, quantidade: i.quantidade }))
-    const { error: itensError } = await supabaseAdmin.from('personalizacao_itens').insert(itensData)
+    const { error: itensError } = await supabase.from('personalizacao_itens').insert(itensData)
     if (itensError) return res.status(500).json({ error: itensError.message })
 
     res.status(201).json(personalizacao)
@@ -30,7 +30,7 @@ router.post('/', authenticate, async (req: AuthRequest, res: Response) => {
 // Listar personalizações do usuário
 router.get('/', authenticate, async (req: AuthRequest, res: Response) => {
   const userId = req.user!.id
-  const { data, error } = await supabaseAdmin
+  const { data, error } = await supabase
     .from('personalizacoes')
     .select('*, personalizacao_itens(*)')
     .eq('usuario_id', userId)

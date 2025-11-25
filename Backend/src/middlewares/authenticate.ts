@@ -1,6 +1,6 @@
 // src/middlewares/authenticate.ts
 import { Request, Response, NextFunction } from 'express'
-import { supabaseAdmin } from '../services/supabaseClient'
+import { supabase } from '../lib/supabaseClient'
 
 // Tipagem do usuário autenticado
 export interface AuthUser {
@@ -28,7 +28,7 @@ export const authenticate = async (req: AuthRequest, res: Response, next: NextFu
     if (!token) return res.status(401).json({ error: 'Token inválido' })
 
     // Buscar usuário no Supabase
-    const { data: userData, error } = await supabaseAdmin.auth.getUser(token)
+    const { data: userData, error } = await supabase.auth.getUser(token)
     if (error || !userData.user) return res.status(401).json({ error: 'Token inválido' })
 
     req.user = {

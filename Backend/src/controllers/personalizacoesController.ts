@@ -2,7 +2,7 @@
 /* Controlador para personalizações */
 import { Request } from 'express'
 import { Response } from 'express'
-import { supabaseAdmin } from '../services/supabaseClient'
+import { supabase } from '../lib/supabaseClient'
 import { AuthRequest } from '../middlewares/authenticate'
 
 export async function createPersonalizacao(req: AuthRequest, res: Response) {
@@ -10,7 +10,7 @@ export async function createPersonalizacao(req: AuthRequest, res: Response) {
     const userId = req.user!.id
     const { itens, total } = req.body
 
-    const { data: pData, error: pError } = await supabaseAdmin
+    const { data: pData, error: pError } = await supabase
       .from('personalizacoes')
       .insert([{ usuario_id: userId, total }])
       .select()
@@ -25,7 +25,7 @@ export async function createPersonalizacao(req: AuthRequest, res: Response) {
       preco_unitario: it.preco_unitario
     }))
 
-    const { error: itensError } = await supabaseAdmin
+    const { error: itensError } = await supabase
       .from('personalizacao_itens')
       .insert(itensToInsert)
 
@@ -41,7 +41,7 @@ export async function createPersonalizacao(req: AuthRequest, res: Response) {
 export async function getUserPersonalizacoes(req: AuthRequest, res: Response) {
   try {
     const userId = req.user!.id
-    const { data, error } = await supabaseAdmin
+    const { data, error } = await supabase
       .from('personalizacoes')
       .select(`*, personalizacao_itens(*)`)
       .eq('usuario_id', userId)

@@ -31,10 +31,25 @@
   border-bottom: 1px solid var(--cor-borda);
 }
 
-.contagem-produtos {
+.contagem-produtos,
+/* página inicial usa a classe `contador-produtos` no elemento */
+.contador-produtos,
+/* garantir também pelo id */
+#contagem-produtos {
   color: #555;
   font-size: 0.9rem;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
 }
+
+/* Se estiver vazio (sem texto), esconder para não quebrar o layout) */
+#contagem-produtos:empty,
+.contador-produtos:empty,
+.contagem-produtos:empty {
+  display: none;
+}
+
 
 .ordenar-por label {
   margin-right: 10px;
@@ -91,12 +106,14 @@
   font-weight: 600;
   margin-bottom: 10px;
   min-height: 44px;
+  text-align: center;
 }
 
 .descricao-produto {
   font-size: 0.95rem;
   color: var(--muted);
   margin-bottom: 15px;
+  text-align: center;
 }
 
 .preco-produto {

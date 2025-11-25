@@ -154,8 +154,14 @@ export function adicionarAoCarrinho(produto, quantidade = 1) {
     label: 'Abrir carrinho',
     onClick: () => {
       try {
-        // navega para a página do carrinho
-        window.location.href = '/pages/Carrinho.html';
+        // navega para a página do carrinho usando caminho relativo
+        const currentPath = window.location.pathname;
+        let cartPath = '../pages/Carrinho.html';
+        // se já está em pages/, usa apenas o arquivo
+        if (currentPath.includes('/pages/')) {
+          cartPath = './Carrinho.html';
+        }
+        window.location.href = cartPath;
       } catch (e) {
         console.error('Falha ao abrir carrinho', e);
       }
@@ -256,8 +262,16 @@ async function enviarCarrinho() {
     return showToast('Número de WhatsApp inválido. Informe apenas números e DDD.', 'error');
   }
 
-  const payload = { cliente_nome: nome, cliente_telefone: telefone, items: itens };
+  // Preparar itens para envio: extrair ID base (sem tamanho) como produto_id
+  const itemsParaEnvio = itens.map(it => ({
+    id: it.id.includes('-') ? it.id.split('-')[0] : it.id, // remove sufixo de tamanho se houver
+    nome_vela: it.nome_vela,
+    tamanho: it.tamanho,
+    preco_unitario: it.preco_unitario,
+    quantidade: it.quantidade
+  }));
 
+  const payload = { cliente_nome: nome, cliente_telefone: telefone, items: itemsParaEnvio };
 
   try {
     const resposta = await enviarPedido(payload);
@@ -276,7 +290,16 @@ async function enviarCarrinho() {
     renderizarCarrinho();
   } catch (erro) {
     console.error('Erro ao enviar pedido:', erro);
-    showToast('Erro ao enviar pedido: ' + (erro.message || erro), 'error');
+    const mensagemErro = erro instanceof Error ? erro.message : String(erro);
+    
+    // mostrar mensagem mais clara dependendo do tipo de erro
+    if (mensagemErro.includes('fetch')) {
+      showToast('Erro de conexão. Verifique se o servidor está funcionando.', 'error', 5000);
+    } else if (mensagemErro.includes('404')) {
+      showToast('Rota não encontrada no servidor. Contate o administrador.', 'error', 5000);
+    } else {
+      showToast('Erro ao enviar pedido: ' + mensagemErro, 'error', 5000);
+    }
   }
 }
 
@@ -296,7 +319,7 @@ window.addEventListener('componentLoaded', (ev) => {
       atualizarBadgeCarrinho();
     }
   } catch (e) {
-    // não bloquear caso não exista evento ou função
+  
   }
 });
 
